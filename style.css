@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e fundo padrão */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f8ff;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Título principal */
+header h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #3a3a99;
+  margin-bottom: 10px;
+}
+
+/* Estilo base dos navs */
+nav {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+/* Links externos */
+nav a[href$=".html"],
+.nav-externa a {
+  background-color: #e0f0ff;
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+}
+
+nav a[href$=".html"]:hover,
+.nav-externa a:hover {
+  background-color: #1e90ff;
+  color: white;
+}
+
+/* Links internos */
+nav a[href^="#"],
+.nav-interna a {
+  background-color: #e6fbe6;
+  color: #228b22;
+  border: 1px solid #228b22;
+}
+
+nav a[href^="#"]:hover,
+.nav-interna a:hover {
+  background-color: #228b22;
+  color: white;
+}
+
+/* Navegação interna e externa - títulos */
+.nav-externa p,
+.nav-interna p {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.nav-interna {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* Seções */
+section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+section h2, section h1 {
+  color: #3a3a99;
+  margin-bottom: 10px;
+}
+
+/* Listas */
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+ul li, ol li {
+  margin-bottom: 5px;
+}
+
+/* Parágrafos */
+p {
+  margin-bottom: 10px;
+}
+
+/* Topbar*/
+.topbar {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topbar h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+thead {
+  background-color: #3a3a99;
+  color: white;
+}
+
+h2 img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+table td img {
+  vertical-align: middle;
+  margin-right: 5px;  
+}
+
+table td, table th {
+  vertical-align: middle;
+}
+
+nav a img{
+  vertical-align: middle;
+  margin-right: 5px;  
+}
