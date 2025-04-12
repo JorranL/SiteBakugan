@@ -7,8 +7,8 @@
 /* Fonte e fundo padrão */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f8ff;
-  color: #333;
+  background-color: #1d1d1d; /* Fundo escuro */
+  color: #fff; /* Texto branco para contraste */
   line-height: 1.6;
   padding: 20px;
   max-width: 1000px;
@@ -19,7 +19,7 @@ body {
 header h1 {
   text-align: center;
   font-size: 2.2rem;
-  color: #3a3a99;
+  color: #d32f2f; /* Vermelho mais forte */
   margin-bottom: 10px;
 }
 
@@ -36,36 +36,119 @@ nav a {
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 6px;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
   font-weight: 500;
+  background-color: #333; /* Cor de fundo inicial */
+  color: #fff; /* Cor do texto */
 }
+
+/* Hover personalizado para links com classes específicas */
+.pyrus:hover {
+  background-color: #bb0000 !important;
+}
+
+.ventus:hover {
+  background-color: #00cc00 !important; 
+}
+
+.haos:hover {
+  background-color: #66ffff !important;
+}
+
+.aquos:hover {
+  background-color: #0099ff !important; 
+}
+
+.darkus:hover {
+  background-color: #111 !important; 
+}
+
+.aurelus:hover {
+  background-color: #ffb300 !important;
+}
+
+/* Links internos (começam com #) */
+nav a[href^="#"].pyrus {
+  background-color: #333;
+}
+
+nav a[href^="#"].ventus {
+  background-color: #333;
+}
+
+nav a[href^="#"].haos {
+  background-color: #333;
+}
+
+nav a[href^="#"].aquos {
+  background-color: #333;
+}
+
+nav a[href^="#"].darkus {
+  background-color: #333;
+}
+
+nav a[href^="#"].aurelus {
+  background-color: #333;
+}
+
+.pyrus {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.ventus {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.haos {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.aquos {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.darkus {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.aurelus {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
 
 /* Links externos */
 nav a[href$=".html"],
 .nav-externa a {
-  background-color: #e0f0ff;
-  color: #1e90ff;
-  border: 1px solid #1e90ff;
+  background-color: #f44336; /* Vermelho mais saturado */
+  color: #fff;
+  border: 1px solid #f44336; /* Vermelho mais saturado */
 }
 
 nav a[href$=".html"]:hover,
 .nav-externa a:hover {
-  background-color: #1e90ff;
-  color: white;
+  background-color: #c62828; /* Vermelho mais escuro */
+  color: #fff;
 }
 
-/* Links internos */
+/* Links internos (começam com #) */
 nav a[href^="#"],
 .nav-interna a {
-  background-color: #e6fbe6;
-  color: #228b22;
-  border: 1px solid #228b22;
+  background-color: #f44336; /* Vermelho mais saturado */
+  color: #fff;
+  border: 1px solid #f44336; /* Vermelho mais saturado */
 }
 
 nav a[href^="#"]:hover,
 .nav-interna a:hover {
-  background-color: #228b22;
-  color: white;
+  background-color: #c62828; /* Vermelho mais escuro */
+  color: #fff;
 }
 
 /* Navegação interna e externa - títulos */
@@ -74,12 +157,12 @@ nav a[href^="#"]:hover,
   text-align: center;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #333;
+  color: #fff;
   font-size: 0.95rem;
 }
 
 .nav-interna {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 10px;
   margin-top: 10px;
 }
@@ -88,13 +171,13 @@ nav a[href^="#"]:hover,
 section {
   margin-top: 40px;
   padding: 20px;
-  background-color: white;
+  background-color: #333; /* Fundo escuro */
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 section h2, section h1 {
-  color: #3a3a99;
+  color: #d32f2f; /* Vermelho mais forte */
   margin-bottom: 10px;
 }
 
@@ -113,9 +196,9 @@ p {
   margin-bottom: 10px;
 }
 
-/* Topbar*/
+/* Topbar */
 .topbar {
-  background-color: #ffffff;
+  background-color: #1d1d1d; /* Fundo escuro */
   padding: 15px 20px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -126,6 +209,7 @@ p {
   margin-bottom: 10px;
   text-align: center;
   font-size: 1.8rem;
+  color: #d32f2f; /* Vermelho mais forte */
 }
 
 table {
@@ -135,7 +219,7 @@ table {
 }
 
 table, th, td {
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; /* Cinza claro */
 }
 
 th, td {
@@ -144,7 +228,7 @@ th, td {
 }
 
 thead {
-  background-color: #3a3a99;
+  background-color: #d32f2f; /* Vermelho mais forte */
   color: white;
 }
 
@@ -162,7 +246,7 @@ table td, table th {
   vertical-align: middle;
 }
 
-nav a img{
+nav a img {
   vertical-align: middle;
   margin-right: 5px;  
 }
