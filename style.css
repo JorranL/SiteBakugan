@@ -6,8 +6,12 @@
 
 /* Fonte e fundo padrão */
 body {
+  background-image: url('Img/5293470.jpg');
+  background-size: cover;           /* Cobre toda a área */
+  background-repeat: no-repeat;     /* Não repete */
+  background-position: center;      /* Centraliza */
+  background-attachment: fixed;     /* Efeito parallax leve (opcional) */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1d1d1d; /* Fundo escuro */
   color: #fff; /* Texto branco para contraste */
   line-height: 1.6;
   padding: 20px;
@@ -162,9 +166,8 @@ nav a[href^="#"]:hover,
 }
 
 .nav-interna {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
-  margin-top: 10px;
+  padding-top: 5px;
+  margin-top: 5px;
 }
 
 /* Seções */
@@ -197,13 +200,26 @@ p {
 }
 
 /* Topbar */
+.topbar-interna {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #1d1d1d; /* Fundo escuro */
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px; /* Espaço depois da topbar-interna */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 .topbar {
   background-color: #1d1d1d; /* Fundo escuro */
   padding: 15px 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0; /* Sem espaço abaixo */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .topbar h1 {
   margin-bottom: 10px;
@@ -249,4 +265,8 @@ table td, table th {
 nav a img {
   vertical-align: middle;
   margin-right: 5px;  
+}
+
+[id] {
+  scroll-margin-top: 100px;
 }

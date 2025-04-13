@@ -8,12 +8,18 @@
 </head>
 <body>
 <header class="topbar">
+  <div style="text-align: center;">
+    <img src="Img/logo.png" style= width:200px;>
+  </div>
   <h1>Facções</h1>
   <nav>
-    <a href="index.html">Início</a>
+    <a href="index.html">Wiki</a>
     <a href="cartas.html">Cartas</a>
   </nav>
+  </header>
+  <header class="topbar-interna">
   <nav>
+    <a href="#inicio">Inicio</a>
     <a href="#pyrus" class="pyrus"> <img src="Img/30px-BBP_Pyrus.svg.png">Pyrus</a>
     <a href="#ventus" class="ventus"><img src="Img/30px-BBP_Ventus.svg.png">Ventus</a>
     <a href="#haos" class="haos"> <img src="Img/30px-BBP_Haos.svg.png">Haos</a>
@@ -22,14 +28,13 @@
     <a href="#aurelus" class="aurelus"> <img src="Img/30px-BBP_Aurelus.svg.png">Aurelus</a>
   </nav>  
 </header>
-
 <section>
-<h2>Facções</h2>
+<h2 id="inicio">Facções</h2>
 <p>As facções são os elementos que definem os estilos de jogo. Cada carta e Bakugan pertence a uma facção, com características únicas que influenciam estratégias e estilos de batalha.</p>
 </section>
 <!-- Seção Pyrus -->
 <section id="pyrus">
-  <h2><img src="Img/30px-BBP_Pyrus.svg.png">Pyrus (Fogo)</h2>
+  <h2 style="color: #e41a1a;"><img src="Img/30px-BBP_Pyrus.svg.png">Pyrus (Fogo)</h2>
   <p>Pyrus é a facção da agressividade e do dano direto. Sua identidade é marcada pela força ofensiva. Jogadores que escolhem Pyrus buscam pressionar o oponente desde o início, utilizando ataques explosivos e a capacidade de destruir cartas adversárias para manter o controle do ritmo da partida.</p>
   <p><strong>Estilo:</strong> Agressividade, dano direto, Fury (quando com 1 ou 0 cartas).</p> 
   <ul>
@@ -45,7 +50,7 @@
 
 <!-- Seção Ventus -->
 <section id="ventus">
-  <h2><img src="Img/30px-BBP_Ventus.svg.png">Ventus (Vento)</h2>
+  <h2 style="color: #126e3c;"><img src="Img/30px-BBP_Ventus.svg.png">Ventus (Vento)</h2>
   <p>Ventus é a facção voltada para o controle e manipulação do campo. O estilo Ventus é mais estratégico, focando em enfraquecer o adversário através de ajustes táticos, alterando ou eliminando os recursos que fortalecem o oponente, garantindo vantagem ao longo da partida.</p>
   <p><strong>Estilo:</strong> Manipulação de BakuCores, controle do campo.</p> 
   <ul>
@@ -60,7 +65,7 @@
 
 <!-- Seção Haos -->
 <section id="haos">
-  <h2><img src="Img/30px-BBP_Haos.svg.png">Haos (Luz)</h2>
+  <h2 style="color: #3d9797;"><img src="Img/30px-BBP_Haos.svg.png">Haos (Luz)</h2>
   <p>Haos se caracteriza pelo suporte e fortalecimento das jogadas. Além de oferecerem vantagem em termos de resistência, as habilidades de Haos colaboram com a estabilidade do time, fazendo com que os jogadores consigam manter seus Bakugans ativos e prontos para os momentos decisivos do jogo.</p>
   <p><strong>Estilo:</strong> Suporte, buffs, proteção, aumento de B-Power.</p> 
   <ul>
@@ -74,7 +79,7 @@
 
 <!-- Seção Aquos -->
 <section id="aquos">
-  <h2><img src="Img/Aquos.svg.png">Aquos (Água)</h2>
+  <h2 style="color: #3e7396;"><img src="Img/Aquos.svg.png">Aquos (Água)</h2>
   <p>Aquos representa o domínio sobre os recursos e o controle do fluxo do jogo. Essa facção é ideal para jogadores que gostam de construir uma vantagem a longo prazo, garantindo uma reserva de cartas e energia que pode virar o jogo nos momentos críticos.</p>
   <p><strong>Estilo:</strong> Controle, compra de cartas, manipulação de energia.</p> 
   <ul>
@@ -88,7 +93,7 @@
 
 <!-- Seção Darkus -->
 <section id="darkus">
-  <h2><img src="Img/30px-BBP_Darkus.svg.png">Darkus (Trevas)</h2>
+  <h2 style="color: #111;"><img src="Img/30px-BBP_Darkus.svg.png">Darkus (Trevas)</h2>
   <p>Darkus é voltada para a destruição e a desestabilização do adversário.  Essa facção busca desequilibrar o campo, criando situações em que o oponente tem dificuldades para reagir diante dos inúmeros efeitos destrutivos e de manipulação impostos pelas cartas Darkus.</p>
   <p><strong>Estilo:</strong> Descarte, destruição, manipulação da mão do oponente.</p> 
   <ul>
@@ -102,7 +107,7 @@
 
 <!-- Seção Aurelus -->
 <section id="aurelus">
-  <h2><img src="Img/30px-BBP_Aurelus.svg.png">Aurelus (Luz Antiga) – Facção Especial</h2>
+  <h2 style="color: #e0cb0f;"><img src="Img/30px-BBP_Aurelus.svg.png">Aurelus (Luz Antiga) – Facção Especial</h2>
   <p>Aurelus é uma facção especial e menos convencional, frequentemente considerada neutra ou premium.  Aurelus não possui cartas de ação, heróis ou evoluções definidas como as demais facções; em vez disso, apresenta cartas de personagem e BakuGears com atributos elevados, conferindo ao jogador a oportunidade de obter vantagens significativas quando bem utilizada.</p>
   <p><strong>Estilo:</strong> Neutro/Premium. Representa equilíbrio e força rara.</p> 
   <ul>
@@ -166,9 +171,8 @@
       </tr>
     </tbody>
   </table>
-</section>
-
-</section>
-
 </body>
+<footer>
+  <p>&copy; 2025 Wiki Bakugan. Criado por fãs para fãs.</p>
+</footer>
 </html>
