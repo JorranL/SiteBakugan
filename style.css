@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Fonte e fundo padrão */
 body {
@@ -47,28 +50,34 @@ nav a {
 }
 
 /* Hover personalizado para links com classes específicas */
-.pyrus:hover {
-  background-color: #bb0000 !important;
+.pyrus.hover:hover {
+  background-color: #bb0000;
+  border-color: #bb0000;
 }
 
-.ventus:hover {
-  background-color: #00cc00 !important; 
+.ventus.hover:hover {
+  background-color: #00cc00;
+  border-color: #00cc00;
 }
 
-.haos:hover {
-  background-color: #66ffff !important;
+.haos.hover:hover {
+  background-color: #66ffff;
+  border-color: #66ffff;
 }
 
-.aquos:hover {
-  background-color: #0099ff !important; 
+.aquos.hover:hover {
+  background-color: #0099ff; 
+  border-color: #0099ff; 
 }
 
-.darkus:hover {
-  background-color: #111 !important; 
+.darkus.hover:hover {
+  background-color: #111;
+  border-color: #111;
 }
 
-.aurelus:hover {
-  background-color: #ffb300 !important;
+.aurelus.hover:hover {
+  background-color: #ffb300;
+  border-color: #ffb300;
 }
 
 /* Links internos (começam com #) */
@@ -174,7 +183,7 @@ nav a[href^="#"]:hover,
 section {
   margin-top: 40px;
   padding: 20px;
-  background-color: #333; /* Fundo escuro */
+  background-color: #222; /* Fundo escuro */
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -229,6 +238,7 @@ p {
 }
 
 table {
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -269,4 +279,23 @@ nav a img {
 
 [id] {
   scroll-margin-top: 100px;
+}
+
+/*Imagem das Cartas*/
+
+@media (max-width: 480px) {
+  table {
+    font-size: 12px;
+  }
+  .premium {
+    display: none;
+  }
+  .card-img {
+    max-width: 240px;
+  }
+}
+
+.card-img {
+  width: 450px;
+  margin-top: 10px;
 }
