@@ -299,3 +299,24 @@ nav a img {
   width: 450px;
   margin-top: 10px;
 }
+.bakucores-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bakucore-card {
+  width: 200px;
+  padding: 15px;
+  color: #111;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.bakucore-card:hover {
+  transform: scale(1.05);
+}
