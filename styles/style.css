@@ -1,15 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
 
 /* Fonte e fundo padrão */
 body {
-  background-image: url('Img/5293470.jpg');
+  background-image: url('../Img/5293470.jpg');
   background-size: cover;           /* Cobre toda a área */
   background-repeat: no-repeat;     /* Não repete */
   background-position: center;      /* Centraliza */
@@ -30,8 +22,39 @@ header h1 {
   margin-bottom: 10px;
 }
 
+.imagem-logo {
+  width: 200px;
+}
+
+/* Subtitulos */
+
+.subtitulo {
+  display: flex;
+  justify-content: center;
+}
+
+.subtitulo-pyrus {
+  color: #e41a1a;
+}
+
+.subtitulo-ventus {
+  color: #126e3c;
+}
+
+.subtitulo-haos {
+  color: #3d9797;
+}
+
+.subtitulo-darkus {
+  color: #111;
+}
+
+.subtitulo-aurelus {
+  color: #e0cb0f;
+}
+
 /* Estilo base dos navs */
-nav {
+.navbar {
   display: flex;
   gap: 15px;
   justify-content: center;
@@ -39,7 +62,7 @@ nav {
   flex-wrap: wrap;
 }
 
-nav a {
+.navbar a {
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 6px;
@@ -47,37 +70,6 @@ nav a {
   font-weight: 500;
   background-color: #333; /* Cor de fundo inicial */
   color: #fff; /* Cor do texto */
-}
-
-/* Hover personalizado para links com classes específicas */
-.pyrus.hover:hover {
-  background-color: #bb0000;
-  border-color: #bb0000;
-}
-
-.ventus.hover:hover {
-  background-color: #00cc00;
-  border-color: #00cc00;
-}
-
-.haos.hover:hover {
-  background-color: #66ffff;
-  border-color: #66ffff;
-}
-
-.aquos.hover:hover {
-  background-color: #0099ff; 
-  border-color: #0099ff; 
-}
-
-.darkus.hover:hover {
-  background-color: #111;
-  border-color: #111;
-}
-
-.aurelus.hover:hover {
-  background-color: #ffb300;
-  border-color: #ffb300;
 }
 
 /* Links internos (começam com #) */
@@ -272,7 +264,7 @@ table td, table th {
   vertical-align: middle;
 }
 
-nav a img {
+.navbar a img {
   vertical-align: middle;
   margin-right: 5px;  
 }
@@ -282,6 +274,11 @@ nav a img {
 }
 
 /*Imagem das Cartas*/
+
+.imagem {
+  display: flex;
+  justify-content: center;
+}
 
 @media (max-width: 480px) {
   table {

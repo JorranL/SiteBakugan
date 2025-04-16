@@ -1,17 +1,13 @@
 {
   "bakugans": [
     {
-      "faccao": "Front End",
-      "link": "https://www.alura.com.br/formacao-front-end",
-      "cor": "#6BD1FF",
-      "link_extra": {
-        "text": "Formação de Front End na Alura",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      },
-      "videos": [
+      "faccao": "pyrus",
+      "bakugan": [
         {
-          "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
-          "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
+          "nome": "Amphrog",
+          "imagem": "./Img/Bakulog/Pyrus_Amphrog_(Open).png",
+          "poder": 1800,
+          "dano": 6
         },
         {
           "titulo": "SEO com React",

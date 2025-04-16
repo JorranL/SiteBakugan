@@ -1,0 +1,30 @@
+/* Hover personalizado para links da facção */
+.pyrus.hover:hover {
+  background-color: #bb0000;
+  border-color: #bb0000;
+}
+
+.ventus.hover:hover {
+  background-color: #00cc00;
+  border-color: #00cc00;
+}
+
+.haos.hover:hover {
+  background-color: #66ffff;
+  border-color: #66ffff;
+}
+
+.aquos.hover:hover {
+  background-color: #0099ff; 
+  border-color: #0099ff; 
+}
+
+.darkus.hover:hover {
+  background-color: #111;
+  border-color: #111;
+}
+
+.aurelus.hover:hover {
+  background-color: #ffb300;
+  border-color: #ffb300;
+}
