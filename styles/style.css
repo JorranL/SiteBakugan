@@ -296,26 +296,3 @@ table td, table th {
   width: 450px;
   margin-top: 10px;
 }
-.bakucores-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-
-.bakucore-card {
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bakucore-card:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 20px rgba(255, 150, 0, 0.5);
-}
-
-.bakucore{
-  width: 100px;
-}
