@@ -1,37 +1,92 @@
-Bakugan: Battle Planet Wiki & DatabasePlataforma web interativa desenvolvida em React e Vite dedicada a centralizar, catalogar e consultar regras, facções, mecânicas de cartas e BakuCores do TCG Bakugan: Battle Planet.📑 ÍndiceSobre o ProjetoFuncionalidadesInterface & DesignInstalação e ExecuçãoEstrutura do ProjetoTecnologias UtilizadasPaleta de Cores (Facções)AutorLicença📖 Sobre o ProjetoEste projeto é uma Single Page Application (SPA) desenvolvida para jogadores e fãs de Bakugan: Battle Planet. A aplicação funciona como um repositório centralizado e interativo contendo:Facções — Análise aprofundada dos 6 elementos com cartas de exemplo em alta definição, estratégias, forças e fraquezas.BakuCores — Consulta interativa dos 5 tipos de núcleos e seus bônus de batalha.Cartas & Efeitos — Guia estruturado de tipos de cartas, mecânicas de disparo, habilidades estáticas e palavras-chave (como Fury, Shadowstrike e Team Attack).Regras & Gameplay — Guias completos sobre como jogar e funcionamento das disputas de batalha.⚡ Funcionalidades✨ ImplementadasSingle Page Application (SPA): Transição instantânea de páginas via gerenciamento de estado global com React Context.Menu Lateral (Drawer/Offcanvas): Menu deslizante com efeito translúcido (glassmorphism) e navegação rápida.Hubs de Seleção Interativos: Telas iniciais com botões/cards em destaque para BakuCores, Facções e Categorias de Cartas.Grid de Facções 2x3: Apresentação visual limpa com cards temáticos por cor elemental e tabela comparativa de estilos.Visualizador Detalhado de Cartas: Exibição ampliada e legível das cartas de exemplo acompanhadas do painel tático da facção.Design Responsivo & Efeitos Visuais: Suporte para resoluções variadas, backdrop filters e paleta de alto contraste em modo escuro.⏳ Em DesenvolvimentoFiltros Avançados & Busca: Busca dinâmica por facção, custo de energia e atributos.Deck Builder: Ferramenta para montagem, contagem e exportação de baralhos customizados.Calculadora de Batalha: Simulador de combate entre Bakugans com aplicação de BakuCores e cartas de ação.🎨 Interface & DesignA interface foi projetada com foco em scannability, contraste e estética moderna inspirada no universo Bakugan:Header Compacto & Fixo (Sticky): Barra superior discreta que acompanha a rolagem sem cobrir as sub-barras de navegação interna.Glassmorphism: Efeito de vidro fosco (backdrop-filter: blur()) com camadas em tons escuros transparentes.Cards Interativos: Efeitos de elevação (hover) e bordas coloridas sincronizadas com o elemento correspondente.🚀 Instalação e ExecuçãoPré-requisitosNode.js (versão 18 ou superior recomendada)Gerenciador de pacotes npm, yarn ou pnpmPasso a PassoClone o repositório:Bashgit clone https://github.com/seu-usuario/SiteBakugan.git
-cd SiteBakugan
-Instale as dependências:Bashnpm install
-Inicie o servidor de desenvolvimento:Bashnpm run dev
-Acesse a aplicação:Abra o endereço exibido no terminal (geralmente http://localhost:5173) no navegador.Para gerar a build de produção:Bashnpm run build
-📂 Estrutura do ProjetoSiteBakugan/
+# Bakugan: Battle Planet — Wiki & Tactical Database
+
+> Uma aplicação web interativa desenvolvida em **React** e **Vite** para catalogar regras, mecânicas de combate, facções, tipos de cartas e BakuCores do TCG **Bakugan: Battle Planet**.
+
+![Bakugan](https://img.shields.io/badge/Bakugan-Battle%20Planet-red?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-Build-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Status](https://img.shields.io/badge/Status-Ativo-brightgreen?style=for-the-badge)
+
+---
+
+## 📖 Visão Geral do Projeto
+
+O projeto é uma **Single Page Application (SPA)** construída para servir como base de conhecimento rápida, visual e acessível tanto para novos jogadores quanto para veteranos do jogo de cartas colecionáveis.
+
+A plataforma organiza todo o ecossistema do jogo em módulos visuais temáticos:
+* **Facções Elementais:** Detalhamento tático dos 6 atributos com exibição ampliada de cartas de exemplo, estratégias principais, forças, fraquezas e parceiros notáveis.
+* **BakuCores:** Catálogo dos 5 tipos de núcleos hexagonais (*Helix, Fist, Fire Fist, Shield e Magic Shield*) e seus respectivos bônus de B-Power e dano.
+* **Mecânicas de Cartas:** Guia completo cobrindo tipos de cartas (*Ação, Herói, Flip, Evo e Energias*), regras de habilidades (*Desencadeadas, Ativadas e Estáticas*) e efeitos de combate (*Fury, Shadowstrike, Team Attack, Victor, etc.*).
+* **Guia de Jogo (Wiki):** Regras fundamentais, condições de vitória e dinâmicas multijogador.
+
+---
+
+## ⚡ Funcionalidades e Destaques da Interface
+
+* **Arquitetura SPA com React Context:** Navegação instantânea e troca de visualizações via `PageContext`, sem recarregamentos no navegador.
+* **Navegação Lateral Deslizante (Drawer Menu):** Menu offcanvas acessado por botão hambúrguer, mantendo o topo limpo e a navegação acessível em qualquer ponto da rolagem.
+* **Header Fixo (Sticky Header):** Barra superior compacta com efeito de vidro fosco (*glassmorphism*) que não encobre os menus e seletores internos.
+* **Hubs Visuais de Seleção:** Telas iniciais com botões/cards ampliados e efeitos de hover dedicados para seleção rápida de categorias.
+* **Grid 2x3 & Tabela Comparativa de Facções:** Apresentação em grade temática sincronizada com as cores oficiais de cada elemento, acompanhada de tabela comparativa de estilos de jogo.
+* **Visualizador Detalhado de Cartas:** Layout em duas colunas projetado para manter a nitidez e legibilidade total dos balões de texto, números e ícones das cartas de exemplo.
+
+---
+
+## 📂 Estrutura de Módulos
+SiteBakugan/
 ├── public/
-│   └── Img/                    # Imagens, ícones de facções, cartas e logos
-├── src/
-│   ├── components/             # Componentes reutilizáveis
-│   │   ├── sections/           # Seções informativas da Home/Wiki
-│   │   │   ├── BakuganSection.jsx
-│   │   │   ├── ComoJogarSection.jsx
-│   │   │   ├── MultijogadorSection.jsx
-│   │   │   └── RegrasSection.jsx
-│   │   ├── BakuCoreSection.jsx # Exibição individual de BakuCores
-│   │   ├── CardSection.jsx     # Renderizador de blocos de cartas/regras
-│   │   ├── FactionCard.jsx     # Card detalhado com imagem e gameplay
-│   │   ├── FactionTable.jsx    # Tabela comparativa de atributos
-│   │   ├── Header.jsx          # Header fixo com Drawer deslizante
-│   │   └── Footer.jsx          # Rodapé da aplicação
-│   ├── context/
-│   │   └── PageContext.jsx     # Contexto global para troca de páginas
-│   ├── data/
-│   │   └── bakucores.js        # Estrutura de dados dos BakuCores
-│   ├── pages/                  # Páginas principais da SPA
-│   │   ├── Home.jsx            # Wiki e regras
-│   │   ├── Faccoes.jsx         # Guia e grid de facções
-│   │   ├── Cartas.jsx          # Tipos, habilidades e efeitos
-│   │   └── BakuCores.jsx       # Catálogo de núcleos
-│   ├── App.jsx                 # Componente raiz
-│   ├── main.jsx                # Ponto de entrada React
-│   └── index.css               # Estilos globais e tema base
-├── index.html                  # Arquivo HTML base (Vite root)
-├── package.json                # Dependências e scripts do Node
-└── vite.config.js              # Configuração do Vite
-🛠️ Tecnologias UtilizadasTecnologiaDescriçãoReact 18Biblioteca para construção de interfaces modulares baseadas em componentesViteFerramenta de build rápida e servidor de desenvolvimento otimizadoJavaScript (ES6+)Lógica de estado, manipulação de coleções e renderização condicionalCSS3 ModernoFlexbox, CSS Grid, Transições, Efeitos de Vidro e Design Responsivo🛡️ Paleta de Cores (Facções)FacçãoElementoCor PrimáriaHex CodePyrusFogoVermelho#E41A1AVentusVentoVerde#126E3CHaosLuzTurquesa / Ciano#3D9797AquosÁguaAzul#3E7396DarkusTrevasRoxo / Púrpura#9B59B6AurelusLuz Antiga (Especial)Dourado#D4AF37👤 AutorDesenvolvido para fins de estudo e como projeto pessoal de consulta para a comunidade de fãs de Bakugan: Battle Planet.📄 LicençaEste projeto é desenvolvido para fins educacionais e sem fins lucrativos. Todos os direitos de propriedade intelectual, nomes, imagens e marcas de Bakugan: Battle Planet pertencem à Spin Master e seus respectivos detentores de direitos autorais.
+│   └── Img/                     # Recursos gráficos (ícones, logos, fundos e cartas)
+└── src/
+├── components/              # Componentes de interface modulares
+│   ├── sections/            # Seções temáticas da página inicial (regras, modos)
+│   ├── BakuCoreSection.jsx  # Renderização individual dos núcleos
+│   ├── CardSection.jsx      # Renderização de blocos de regras e cartas
+│   ├── FactionCard.jsx      # Card detalhado com carta e ficha técnica
+│   ├── FactionTable.jsx     # Tabela comparativa dos 6 elementos
+│   ├── Header.jsx           # Topbar fixa com Drawer lateral
+│   └── Footer.jsx           # Rodapé da aplicação
+├── context/
+│   └── PageContext.jsx      # Controle do estado global de páginas
+├── data/
+│   └── bakucores.js         # Base de dados estruturada dos núcleos
+├── pages/                   # Telas da aplicação
+│   ├── Home.jsx             # Wiki principal e regras
+│   ├── Faccoes.jsx          # Painel e detalhes das facções
+│   ├── Cartas.jsx           # Hub de tipos, habilidades e efeitos
+│   └── BakuCores.jsx        # Consulta aos 5 BakuCores
+├── App.jsx                  # Orquestrador da aplicação
+├── main.jsx                 # Inicialização do React
+└── index.css                # Sistema de design global (Dark theme)
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **React 18:** Construção de componentes declarativos, reutilizáveis e gerenciamento de estado.
+* **Vite:** Empacotamento de assets e ambiente de execução de alto desempenho.
+* **JavaScript (ES6+):** Lógica funcional, mapeamento de coleções e renderização dinâmica.
+* **CSS3:** Estruturação via Flexbox e CSS Grid, efeitos de iluminação e *backdrop-filter*.
+
+---
+
+## 🛡️ Identidade Visual das Facções
+
+| Facção | Elemento | Cor Tema | Hex |
+|---|---|---|---|
+| **Pyrus** | Fogo | Vermelho | `#E41A1A` |
+| **Ventus** | Vento | Verde | `#126E3C` |
+| **Haos** | Luz | Turquesa | `#3D9797` |
+| **Aquos** | Água | Azul | `#3E7396` |
+| **Darkus** | Trevas | Roxo / Púrpura | `#9B59B6` |
+| **Aurelus** | Luz Antiga | Dourado | `#D4AF37` |
+
+---
+
+## 👤 Autor
+
+Desenvolvido como projeto pessoal de consulta e documentação para a comunidade de jogadores e fãs de **Bakugan: Battle Planet**.
+
+---
+
+## 📄 Informações Legais
+
+Este projeto possui caráter educacional e de pesquisa. Todos os direitos de propriedade intelectual, ilustrações, personagens e marcas pertencem à **Spin Master** e aos respectivos detentores de direitos autorais.
