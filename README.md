@@ -30,7 +30,6 @@ A plataforma organiza todo o ecossistema do jogo em módulos visuais temáticos:
 * **Grid 2x3 & Tabela Comparativa de Facções:** Apresentação em grade temática sincronizada com as cores oficiais de cada elemento, acompanhada de tabela comparativa de estilos de jogo.
 * **Visualizador Detalhado de Cartas:** Layout em duas colunas projetado para manter a nitidez e legibilidade total dos balões de texto, números e ícones das cartas de exemplo.
 ---
----
 ## 🛠️ Tecnologias Utilizadas
 
 * **React 18:** Construção de componentes declarativos, reutilizáveis e gerenciamento de estado.
