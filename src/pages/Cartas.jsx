@@ -3,10 +3,34 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CardSection from '../components/CardSection'
 
+const CATEGORIES = [
+  {
+    id: 'tipos',
+    title: 'Tipos de Cartas',
+    subtitle: 'Ação, Herói, Flip, Evo e Energias',
+    icon: '🎴',
+    color: '#d32f2f'
+  },
+  {
+    id: 'habilidades',
+    title: 'Mecânicas de Habilidade',
+    subtitle: 'Desencadeadas, Ativadas e Estáticas',
+    icon: '⚡',
+    color: '#1976d2'
+  },
+  {
+    id: 'efeitos',
+    title: 'Efeitos & Palavras-chave',
+    subtitle: 'Destruição, Buffs, Fury, Shadowstrike...',
+    icon: '✨',
+    color: '#388e3c'
+  }
+]
+
 const CARD_TYPES = [
   {
     id: 'tipos-cartas',
-    title: 'Cartas',
+    title: 'Tipos de Cartas Principais',
     description: 'Existem 5 tipos principais de cartas no Bakugan TCG:',
     items: [
       { type: 'Ação', description: 'Jogadas da mão para obter efeitos imediatos, como aumentar ou reduzir atributos, causar dano ou negar efeitos. Vão para o descarte após o uso.' },
@@ -22,34 +46,31 @@ const ABILITIES = [
   {
     id: 'habilidades-desencadeadas',
     title: 'Habilidades Desencadeadas',
-    description: 'Habilidades desencadeadas são habilidades que têm condições específicas em que ocorrem. Eles normalmente aparecem como:',
+    description: 'Habilidades que têm condições específicas em que ocorrem (When / If / At):',
     items: [
-      'When/if/at/other',
-      'condition',
-      'effect',
-      'Se uma habilidade desencadeada tiver cada uma de suas condições atendidas, o resultado é colocado no topo do lote.',
-      'Se várias habilidades desencadeadas ocorrerem simultaneamente, "o jogador inicial" primeiro coloca cada uma de suas habilidades no lote na ordem que ele escolher. Em seguida, o outro jogador coloca suas habilidades no topo do lote na ordem que escolher.',
-      'Algumas habilidades desencadeadas têm condições sob as quais seu efeito acontecerá. Essas condições devem ser atendidas quando a habilidade for resolvida para que o efeito ocorra.',
-      'Se uma habilidade desencadeada for opcional, o controlador decide se coloca ou não a habilidade no lote.'
+      'Se uma habilidade desencadeada tiver suas condições atendidas, o resultado é colocado no topo do lote.',
+      'Se várias ocorrerem simultaneamente, o jogador inicial coloca suas habilidades primeiro na ordem de sua escolha.',
+      'Algumas habilidades têm condições que devem ser válidas no momento da resolução do lote.',
+      'Se for opcional, o controlador decide se coloca ou não a habilidade no lote.'
     ]
   },
   {
     id: 'habilidades-ativadas',
     title: 'Habilidades Ativadas',
-    description: 'As habilidades ativadas têm um custo e efeito. Eles aparecem como custo(Energia) e efeito.',
+    description: 'Possuem um custo e efeito (Custo de Energia → Efeito):',
     items: [
-      'Para que uma habilidade ativada seja anunciada, todos os custos devem ser pagos. Uma vez que os custos são pagos e a habilidade é anunciada, o efeito é colocado no topo do lote.',
-      'Algumas habilidades ativadas têm condições para ativa-las.'
+      'Todos os custos devem ser pagos antes que a habilidade seja anunciada e colocada no topo do lote.',
+      'Algumas habilidades ativadas exigem condições específicas além do custo.'
     ]
   },
   {
     id: 'habilidades-estaticas',
     title: 'Habilidades Estáticas',
-    description: 'Habilidades estáticas entram em vigor constantemente, em vez de serem ativadas ou acionadas em um determinado momento.',
+    description: 'Entram em vigor constantemente, de forma passiva e contínua:',
     items: [
-      'Os efeitos BakuCore são considerados habilidades estáticas enquanto são mantidos por uma carta de Personagem.',
-      'Alguns personagens têm habilidades estáticas que são aplicadas se estiverem segurando um tipo específico de BakuCore.',
-      'As habilidades estáticas podem estar ativas na mão de um jogador, na pilha de descarte ou no lote. Essas habilidades farão declarações sobre estar na zona em que estão ativas.'
+      'Os efeitos de BakuCores equipados são considerados habilidades estáticas.',
+      'Certos personagens possuem bônus contínuos ao segurarem tipos específicos de BakuCore.',
+      'Podem atuar na mão, na pilha de descarte ou no lote de acordo com o texto da carta.'
     ]
   }
 ]
@@ -57,175 +78,167 @@ const ABILITIES = [
 const EFFECTS = [
   {
     id: 'efeitos-acao',
-    title: 'Efeitos de Ação',
-    description: 'Esses efeitos são ativados quando você joga a carta da sua mão pagando o custo de energia.',
+    title: 'Efeitos de Cartas de Ação',
+    description: 'Ativados ao jogar a carta pagando seu custo:',
     items: [
-      { type: 'Destruição', description: '"Destroy an Energy Card", "Destroy a Hero", etc.' },
-      { type: 'Anulação', description: 'Cancela o efeito de uma carta específica (ação, herói, evolução).' },
-      { type: 'Boost de B-Power ou Damage', description: 'Aumenta temporariamente o poder de batalha (B-Power) ou o dano.' },
-      { type: 'Remoção de Core', description: 'Remove um BakuCore do Bakugan inimigo.' },
-      { type: 'Comprar cartas (Draw)', description: 'Permite puxar mais cartas do deck.' },
-      { type: 'Descartar (Discard)', description: 'Faz o oponente descartar cartas.' },
-      { type: 'Recuperação de Cartas (Energize, Retrieve)', description: 'Reenergiza cartas usadas ou recupera cartas do descarte.' }
+      { type: 'Destruição', description: 'Destrói energias, heróis ou recursos do adversário.' },
+      { type: 'Anulação', description: 'Cancela a resolução de ações, heróis ou evos específicas.' },
+      { type: 'Boost de B-Power / Damage', description: 'Aumenta temporariamente o poder de batalha ou o dano de ataque.' },
+      { type: 'Manipulação de Core', description: 'Remove ou rouba BakuCores dos Bakugans.' },
+      { type: 'Compra & Descarte', description: 'Permite comprar mais cartas (Draw) ou força o oponente a descartar (Discard).' }
     ]
   },
   {
-    id: 'efeitos-herois',
-    title: 'Efeitos Contínuos de Heróis',
-    description: 'Heróis ficam em campo e aplicam efeitos passivos ou ativam efeitos com condições específicas.',
+    id: 'efeitos-outros',
+    title: 'Palavras-chave e Mecânicas Especiais',
+    description: 'Sinergias encontradas em diversas cartas e monstros:',
     items: [
-      { type: 'Buffs permanentes', description: '+X B-Power ou +X Damage a todos os seus Bakugans.' },
-      { type: 'Efeitos por rodada', description: '"Uma vez por tudo", "quando jogar uma carta", "quando um Bakugan abrir".' },
-      { type: 'Desencadeadores (Triggers)', description: 'Algo acontece toda vez que uma condição é atendida.' }
-    ]
-  },
-  {
-    id: 'efeitos-evolucao',
-    title: 'Efeitos de Evolução',
-    description: 'Evoluções substituem os Bakugans normais e dão status melhores e efeitos adicionais.',
-    items: [
-      { type: 'Trigger ao evoluir', description: 'Ganha dano extra, draw, destrói algo, entre outros.' },
-      { type: 'Efeitos passivos', description: 'Toda vez que vencer uma briga, causa dano adicional, entre outros.' }
-    ]
-  },
-  {
-    id: 'efeitos-flip',
-    title: 'Efeitos de Flip Cards',
-    description: 'São como "armadilhas": ativadas quando você toma dano e paga energia.',
-    items: [
-      { type: 'Negar Dano (Stop)', description: '"Stop Non-[Fação]" – impede dano de facções específicas.' },
-      { type: 'Bloqueio geral', description: 'Algumas param qualquer dano, outras só contra certas facções.' },
-      { type: 'Efeitos adicionais', description: 'Algumas flips também descartam cartas ou afetam heróis.' }
-    ]
-  },
-  {
-    id: 'efeitos-bakugan',
-    title: 'Efeitos dos Bakugan',
-    description: 'Embora não tenham texto de efeito, os Bakugan interagem com efeitos baseados em suas características e Cores atribuídos.',
-    items: [
-      { type: 'BakuCores atribuídos', description: 'Os bônus dados pelos BakuCores podem definir se ele é forte com +B, +Damage, ou efeitos especiais como "Remove Core", "Steal Core".' },
-      { type: 'Habilidades especiais em Evos', description: 'Quando evoluem, podem ter efeitos similares a heróis ou ações.' }
-    ]
-  },
-  {
-    id: 'outros-efeitos',
-    title: 'Outros Efeitos Relevantes',
-    description: 'Existem também mecânicas e efeitos que aparecem em diversas cartas, com sinergias específicas.',
-    items: [
-      { type: 'Victor Effects', description: '"Quando seu Bakugan ganha a briga, faça ..."' },
-      { type: 'Team Attack', description: 'Quando todos os seus Bakugans estão abertos, você ataca com todos juntos.' },
-      { type: 'Shadowstrike', description: 'Ignora redução de dano ou poder.' },
-      { type: 'Fury', description: 'Efeitos ativados quando você tem 1 ou 0 cartas na mão.' },
-      { type: 'Trifecta', description: 'Ativa se você tiver 3 Bakugans abertos.' },
-      { type: 'Rapid Fire', description: 'Permite jogar uma ação adicional sem custo.' }
+      { type: 'Victor', description: 'Ativa um efeito adicional caso seu Bakugan vença a disputa de combate.' },
+      { type: 'Team Attack', description: 'Ataque combinado quando todos os seus Bakugans estão abertos.' },
+      { type: 'Shadowstrike', description: 'Ataque furtivo que ignora qualquer redução de dano ou bônus defensivo inimigo.' },
+      { type: 'Fury', description: 'Habilidade bônus que entra em vigor se você tiver 1 ou 0 cartas na mão.' },
+      { type: 'Trifecta', description: 'Bônus ativo enquanto você controlar 3 Bakugans abertos.' },
+      { type: 'Rapid Fire', description: 'Permite conjurar ações adicionais encadeadas sem custo adicional.' }
     ]
   }
 ]
 
 export default function Cartas() {
-  const [activeTab, setActiveTab] = useState('tipos')
-
-  const allSections = [
-    ...CARD_TYPES,
-    ...(activeTab === 'habilidades' ? ABILITIES : []),
-    ...(activeTab === 'efeitos' ? EFFECTS : []),
-    ...(['tipos', 'inicio'].includes(activeTab) ? ABILITIES : []),
-    ...(['tipos', 'inicio'].includes(activeTab) ? EFFECTS : [])
-  ]
-
-  const renderContent = () => {
-    if (activeTab === 'habilidades') {
-      return (
-        <>
-          {CARD_TYPES.map((section) => (
-            <CardSection key={section.id} section={section} />
-          ))}
-          {ABILITIES.map((section) => (
-            <CardSection key={section.id} section={section} />
-          ))}
-        </>
-      )
-    } else if (activeTab === 'efeitos') {
-      return EFFECTS.map((section) => (
-        <CardSection key={section.id} section={section} />
-      ))
-    } else {
-      // Mostrar tudo
-      return (
-        <>
-          {CARD_TYPES.map((section) => (
-            <CardSection key={section.id} section={section} />
-          ))}
-          {ABILITIES.map((section) => (
-            <CardSection key={section.id} section={section} />
-          ))}
-          {EFFECTS.map((section) => (
-            <CardSection key={section.id} section={section} />
-          ))}
-        </>
-      )
-    }
-  }
+  const [activeTab, setActiveTab] = useState(null)
 
   return (
     <div>
       <Header />
-      <header className="topbar-interna">
-        <nav className="nav-interna" style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => setActiveTab('inicio')}
-            style={{
-              background: activeTab === 'inicio' ? '#d32f2f' : '#333',
-              color: '#fff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: '0.3s',
-              fontSize: '0.9rem',
-              fontWeight: '500'
-            }}
-          >
-            Início
-          </button>
-          <button
-            onClick={() => setActiveTab('habilidades')}
-            style={{
-              background: activeTab === 'habilidades' ? '#d32f2f' : '#333',
-              color: '#fff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: '0.3s',
-              fontSize: '0.9rem',
-              fontWeight: '500'
-            }}
-          >
-            Habilidades
-          </button>
-          <button
-            onClick={() => setActiveTab('efeitos')}
-            style={{
-              background: activeTab === 'efeitos' ? '#d32f2f' : '#333',
-              color: '#fff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: '0.3s',
-              fontSize: '0.9rem',
-              fontWeight: '500'
-            }}
-          >
-            Efeitos
-          </button>
-        </nav>
-      </header>
 
-      <div style={{ marginTop: '20px' }}>
-        {renderContent()}
-      </div>
+      {/* TELA INICIAL: Nenhum card selecionado -> Mostra os 3 Grandes Cards */}
+      {activeTab === null ? (
+        <main style={{ padding: '40px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+          <section style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '10px' }}>
+              Guia de Cartas e Regras
+            </h2>
+            <p style={{ color: '#aaa', maxWidth: '650px', margin: '0 auto', fontSize: '1rem' }}>
+              Explore os tipos de cartas do TCG, compreenda o funcionamento do sistema de habilidades e conheça todas as palavras-chave e efeitos de jogo.
+            </p>
+          </section>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '24px',
+              maxWidth: '850px',
+              margin: '0 auto'
+            }}
+          >
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                style={{
+                  background: '#1a1a1a',
+                  border: `2px solid ${cat.color}`,
+                  borderRadius: '12px',
+                  padding: '30px 20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '12px',
+                  cursor: 'pointer',
+                  color: '#fff',
+                  boxShadow: '0 6px 14px rgba(0, 0, 0, 0.4)',
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.boxShadow = `0 8px 20px ${cat.color}55`
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 6px 14px rgba(0, 0, 0, 0.4)'
+                }}
+              >
+                <span style={{ fontSize: '2.5rem' }}>{cat.icon}</span>
+                <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>{cat.title}</span>
+                <span style={{ fontSize: '0.85rem', color: '#aaa', textAlign: 'center' }}>
+                  {cat.subtitle}
+                </span>
+              </button>
+            ))}
+          </div>
+        </main>
+      ) : (
+        /* TELA DETALHADA: Aba selecionada com barra compacta */
+        <main style={{ paddingBottom: '40px', maxWidth: '1000px', margin: '0 auto' }}>
+          <header className="topbar-interna" style={{ padding: '20px 0' }}>
+            <nav
+              className="nav-interna"
+              style={{
+                display: 'flex',
+                gap: '10px',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                alignItems: 'center'
+              }}
+            >
+              <button
+                onClick={() => setActiveTab(null)}
+                style={{
+                  background: '#2b2b2b',
+                  color: '#fff',
+                  border: '1px solid #555',
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '0.9rem'
+                }}
+              >
+                ← Visão Geral
+              </button>
+
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  style={{
+                    background: activeTab === cat.id ? cat.color : '#222',
+                    color: '#fff',
+                    border: '1px solid #444',
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.9rem',
+                    transition: '0.2s'
+                  }}
+                >
+                  <span>{cat.icon}</span>
+                  {cat.title}
+                </button>
+              ))}
+            </nav>
+          </header>
+
+          <div style={{ marginTop: '20px', padding: '0 20px' }}>
+            {activeTab === 'tipos' &&
+              CARD_TYPES.map((section) => (
+                <CardSection key={section.id} section={section} />
+              ))}
+
+            {activeTab === 'habilidades' &&
+              ABILITIES.map((section) => (
+                <CardSection key={section.id} section={section} />
+              ))}
+
+            {activeTab === 'efeitos' &&
+              EFFECTS.map((section) => (
+                <CardSection key={section.id} section={section} />
+              ))}
+          </div>
+        </main>
+      )}
 
       <Footer />
     </div>

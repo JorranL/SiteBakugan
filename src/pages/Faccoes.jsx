@@ -77,7 +77,7 @@ const FACTIONS = [
     id: 'darkus',
     name: 'Darkus',
     subtitle: 'Trevas',
-    color: '#111',
+    color: '#9b59b6',
     icon: 'Img/30px-BBP_Darkus.svg.png',
     description: 'Darkus é voltada para a destruição e a desestabilização do adversário. Essa facção busca desequilibrar o campo, criando situações em que o oponente tem dificuldades para reagir diante dos inúmeros efeitos destrutivos e de manipulação impostos pelas cartas Darkus.',
     style: 'Descarte, destruição, manipulação da mão do oponente',
@@ -94,7 +94,7 @@ const FACTIONS = [
     id: 'aurelus',
     name: 'Aurelus',
     subtitle: 'Luz Antiga - Facção Especial',
-    color: '#e0cb0f',
+    color: '#d4af37',
     icon: 'Img/30px-BBP_Aurelus.svg.png',
     description: 'Aurelus é uma facção especial e menos convencional, frequentemente considerada neutra ou premium. Aurelus não possui cartas de ação, heróis ou evoluções definidas como as demais facções; em vez disso, apresenta cartas de personagem e BakuGears com atributos elevados, conferindo ao jogador a oportunidade de obter vantagens significativas quando bem utilizada.',
     style: 'Neutro/Premium. Representa equilíbrio e força rara',
@@ -115,68 +115,138 @@ export default function Faccoes() {
   return (
     <div>
       <Header />
-      <header className="topbar-interna">
-        <nav className="nav-interna" style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => setActiveFaction(null)}
+
+      {/* TELA INICIAL: Grid 2x3 de Facções + Tabela Comparativa */}
+      {activeFaction === null ? (
+        <main style={{ padding: '40px 20px', maxWidth: '960px', margin: '0 auto' }}>
+          <section style={{ textAlign: 'center', marginBottom: '35px' }}>
+            <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '10px' }}>Facções Bakugan</h2>
+            <p style={{ color: '#aaa', maxWidth: '650px', margin: '0 auto', fontSize: '1rem' }}>
+              Selecione uma facção para ver suas características completas ou consulte a tabela comparativa abaixo.
+            </p>
+          </section>
+
+          {/* Grid 2x3 (3 colunas x 2 linhas) */}
+          <div
             style={{
-              background: activeFaction === null ? '#d32f2f' : '#333',
-              color: '#fff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: '0.3s',
-              fontSize: '0.9rem'
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '20px',
+              maxWidth: '750px',
+              margin: '0 auto 50px auto'
             }}
           >
-            Início
-          </button>
-          {FACTIONS.map((faction) => (
-            <button
-              key={faction.id}
-              onClick={() => setActiveFaction(faction.id)}
-              className={faction.id}
+            {FACTIONS.map((faction) => (
+              <button
+                key={faction.id}
+                onClick={() => setActiveFaction(faction.id)}
+                style={{
+                  background: '#1a1a1a',
+                  border: `2px solid ${faction.color}`,
+                  borderRadius: '12px',
+                  padding: '20px 15px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '10px',
+                  cursor: 'pointer',
+                  color: '#fff',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)'
+                  e.currentTarget.style.boxShadow = `0 6px 16px ${faction.color}55`
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.4)'
+                }}
+              >
+                <img
+                  src={faction.icon}
+                  alt={faction.name}
+                  style={{ height: '48px', width: '48px', objectFit: 'contain' }}
+                />
+                <div style={{ textAlign: 'center' }}>
+                  <span style={{ fontWeight: 'bold', fontSize: '1.05rem', display: 'block' }}>
+                    {faction.name}
+                  </span>
+                  <span style={{ fontSize: '0.8rem', color: '#bbb' }}>{faction.subtitle}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Tabela de Comparação */}
+          <div style={{ marginTop: '20px' }}>
+            <h3 style={{ color: '#fff', textAlign: 'center', marginBottom: '20px', fontSize: '1.4rem' }}>
+              Tabela Comparativa de Estilos
+            </h3>
+            <FactionTable factions={FACTIONS} />
+          </div>
+        </main>
+      ) : (
+        /* TELA DETALHADA: Facção selecionada */
+        <main style={{ paddingBottom: '40px' }}>
+          <header className="topbar-interna" style={{ padding: '20px 0' }}>
+            <nav
+              className="nav-interna"
               style={{
-                background: activeFaction === faction.id ? faction.color : '#333',
-                color: '#fff',
-                border: 'none',
-                padding: '8px 16px',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                transition: '0.3s',
                 display: 'flex',
-                alignItems: 'center',
-                gap: '5px',
-                fontSize: '0.9rem'
+                gap: '10px',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                alignItems: 'center'
               }}
             >
-              <img src={faction.icon} alt={faction.name} style={{ height: '20px' }} />
-              {faction.name}
-            </button>
-          ))}
-        </nav>
-      </header>
+              <button
+                onClick={() => setActiveFaction(null)}
+                style={{
+                  background: '#2b2b2b',
+                  color: '#fff',
+                  border: '1px solid #555',
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '0.9rem',
+                  transition: '0.2s'
+                }}
+              >
+                ← Visão Geral
+              </button>
 
-      <section style={{ marginBottom: '20px' }}>
-        <h2>Facções</h2>
-        <p>
-          As facções são os elementos que definem os estilos de jogo. Cada carta e Bakugan pertence a uma facção, com
-          características únicas que influenciam estratégias e estilos de batalha.
-        </p>
-      </section>
+              {FACTIONS.map((faction) => (
+                <button
+                  key={faction.id}
+                  onClick={() => setActiveFaction(faction.id)}
+                  style={{
+                    background: activeFaction === faction.id ? faction.color : '#222',
+                    color: '#fff',
+                    border: '1px solid #444',
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    transition: '0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.9rem'
+                  }}
+                >
+                  <img
+                    src={faction.icon}
+                    alt={faction.name}
+                    style={{ height: '22px', width: '22px', objectFit: 'contain' }}
+                  />
+                  {faction.name}
+                </button>
+              ))}
+            </nav>
+          </header>
 
-      {activeFaction === null ? (
-        <>
-          {FACTIONS.map((faction) => (
-            <FactionCard key={faction.id} faction={faction} />
-          ))}
-          <FactionTable factions={FACTIONS} />
-        </>
-      ) : (
-        <>
-          <FactionCard faction={FACTIONS.find(f => f.id === activeFaction)} />
-        </>
+          <FactionCard faction={FACTIONS.find((f) => f.id === activeFaction)} />
+        </main>
       )}
 
       <Footer />
