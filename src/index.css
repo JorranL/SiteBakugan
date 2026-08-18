@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fonte e fundo padrão */
+body {
+  background-image: url('Img/5293470.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Título principal */
+header h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+/* Estilo base dos navs */
+nav {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Hover personalizado para links com classes específicas */
+.pyrus:hover {
+  background-color: #bb0000;
+  border-color: #bb0000;
+}
+
+.ventus:hover {
+  background-color: #00cc00;
+  border-color: #00cc00;
+}
+
+.haos:hover {
+  background-color: #66ffff;
+  border-color: #66ffff;
+}
+
+.aquos:hover {
+  background-color: #0099ff;
+  border-color: #0099ff;
+}
+
+.darkus:hover {
+  background-color: #111;
+  border-color: #111;
+}
+
+.aurelus:hover {
+  background-color: #ffb300;
+  border-color: #ffb300;
+}
+
+/* Links externos */
+.nav-externa a {
+  background-color: #f44336;
+  color: #fff;
+  border: 1px solid #f44336;
+}
+
+.nav-externa a:hover {
+  background-color: #c62828;
+  color: #fff;
+  border-color: #c62828;
+}
+
+/* Header */
+.topbar {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.topbar img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.topbar-interna {
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Seções */
+section {
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+section h1,
+section h2,
+section h3 {
+  color: #d32f2f;
+  margin: 15px 0 10px 0;
+  text-decoration: underline;
+}
+
+section h1 {
+  font-size: 1.8rem;
+}
+
+section h2 {
+  font-size: 1.5rem;
+}
+
+section h3 {
+  font-size: 1.2rem;
+}
+
+section p {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+section ul,
+section ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+}
+
+section li {
+  margin: 8px 0;
+}
+
+section strong {
+  color: #ffd700;
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table thead {
+  background: #333;
+  border-bottom: 2px solid #d32f2f;
+}
+
+table th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  color: #ffd700;
+  border-right: 1px solid #666;
+}
+
+table th:last-child {
+  border-right: none;
+}
+
+table td {
+  padding: 12px 15px;
+  border-right: 1px solid #555;
+  vertical-align: middle;
+}
+
+table td:last-child {
+  border-right: none;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #555;
+}
+
+table tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+table tbody tr:hover {
+  background: rgba(211, 47, 47, 0.2);
+}
+
+table img {
+  max-height: 30px;
+  vertical-align: middle;
+}
+
+/* Imagens de Cartas */
+.card-img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #d32f2f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
+
+/* BakuCores */
+.bakucores-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.bakucore-card {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bakucore-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(211, 47, 47, 0.5);
+}
+
+.bakucore {
+  width: 100px;
+  display: block;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 2px solid #d32f2f;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  .topbar img {
+    width: 150px;
+  }
+}
