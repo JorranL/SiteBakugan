@@ -29,36 +29,8 @@ A plataforma organiza todo o ecossistema do jogo em módulos visuais temáticos:
 * **Hubs Visuais de Seleção:** Telas iniciais com botões/cards ampliados e efeitos de hover dedicados para seleção rápida de categorias.
 * **Grid 2x3 & Tabela Comparativa de Facções:** Apresentação em grade temática sincronizada com as cores oficiais de cada elemento, acompanhada de tabela comparativa de estilos de jogo.
 * **Visualizador Detalhado de Cartas:** Layout em duas colunas projetado para manter a nitidez e legibilidade total dos balões de texto, números e ícones das cartas de exemplo.
-
 ---
-
-## 📂 Estrutura de Módulos
-SiteBakugan/
-├── public/
-│   └── Img/                     # Recursos gráficos (ícones, logos, fundos e cartas)
-└── src/
-├── components/              # Componentes de interface modulares
-│   ├── sections/            # Seções temáticas da página inicial (regras, modos)
-│   ├── BakuCoreSection.jsx  # Renderização individual dos núcleos
-│   ├── CardSection.jsx      # Renderização de blocos de regras e cartas
-│   ├── FactionCard.jsx      # Card detalhado com carta e ficha técnica
-│   ├── FactionTable.jsx     # Tabela comparativa dos 6 elementos
-│   ├── Header.jsx           # Topbar fixa com Drawer lateral
-│   └── Footer.jsx           # Rodapé da aplicação
-├── context/
-│   └── PageContext.jsx      # Controle do estado global de páginas
-├── data/
-│   └── bakucores.js         # Base de dados estruturada dos núcleos
-├── pages/                   # Telas da aplicação
-│   ├── Home.jsx             # Wiki principal e regras
-│   ├── Faccoes.jsx          # Painel e detalhes das facções
-│   ├── Cartas.jsx           # Hub de tipos, habilidades e efeitos
-│   └── BakuCores.jsx        # Consulta aos 5 BakuCores
-├── App.jsx                  # Orquestrador da aplicação
-├── main.jsx                 # Inicialização do React
-└── index.css                # Sistema de design global (Dark theme)
 ---
-
 ## 🛠️ Tecnologias Utilizadas
 
 * **React 18:** Construção de componentes declarativos, reutilizáveis e gerenciamento de estado.
