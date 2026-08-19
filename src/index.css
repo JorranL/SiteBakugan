@@ -1,14 +1,19 @@
+/* ==========================================================================
+   RESET & CONFIGURAÇÕES GERAIS
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
 }
 
-/* Fonte e fundo padrão */
 body {
   background-image: url('Img/5293470.jpg');
   background-size: cover;
@@ -18,46 +23,51 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
   line-height: 1.6;
-  padding: 0;
-  margin: 0;
-  min-height: 100vh;
 }
 
+/* ==========================================================================
+   ESTRUTURA DE ALTURA TOTAL (STICKY FOOTER)
+   ========================================================================== */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Container para centralizar o conteúdo abaixo do header */
-main, .page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+/* Garante que o App e as páginas expandam na vertical */
+.app-layout,
+#root > div,
+.home-page,
+.cartas-page,
+.faccoes-page,
+.bakucores-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
+/* Área central onde o conteúdo das páginas é renderizado */
+main,
+.page-container,
+.content-wrapper {
+  flex: 1; /* Ocupa todo o espaço vertical disponível */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente em telas curtas */
+}
 
+/* ==========================================================================
+   SUB-NAVBARS & LINKS
+   ========================================================================== */
 .topbar {
   margin: 0;
 }
 
-.topbar img {
-  width: 160px;
-  display: block;
-  margin: 0 auto 6px auto;
-  transition: transform 0.2s ease;
-}
-
-.topbar h1 {
-  text-align: center;
-  font-size: 1.6rem;
-  color: #ff3b30;
-  margin: 0 0 8px 0;
-  letter-spacing: 0.5px;
-}
-
-/* Barra de Navegação Interna Fixa (abaixo do Header) */
 .topbar-interna {
   position: sticky;
   top: 64px;
@@ -65,13 +75,12 @@ main, .page-container {
   background: rgba(18, 18, 18, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 25px;
+  padding: 10px 16px;
+  margin: 15px 0 25px 0;
 }
 
-/* Estilo base dos navs */
 nav {
   display: flex;
   gap: 12px;
@@ -80,64 +89,127 @@ nav {
   flex-wrap: wrap;
 }
 
-nav a {
-  text-decoration: none;
+nav a,
+.topbar-interna button {
+  background: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
   padding: 8px 16px;
-  border-radius: 6px;
-  transition: 0.3s ease-in-out;
-  font-weight: 500;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Hover personalizado para links de facção */
-.pyrus:hover { background-color: #bb0000; }
-.ventus:hover { background-color: #00cc00; }
-.haos:hover { background-color: #66ffff; color: #000; }
-.aquos:hover { background-color: #0099ff; }
-.darkus:hover { background-color: #9b59b6; }
-.aurelus:hover { background-color: #ffb300; }
-
-/* Links externos / Botões principais */
-.nav-externa button {
-  background-color: #d32f2f;
-  color: #fff;
-  border: 1px solid #b71c1c;
-  padding: 8px 18px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.nav-externa button:hover {
-  background-color: #b71c1c;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
+nav a:hover,
+.topbar-interna button:hover {
+  background: #3d3d3d;
 }
 
-/* Seções */
+/* Hovers temáticos por facção */
+.pyrus:hover { background-color: #bb0000; border-color: #bb0000; }
+.ventus:hover { background-color: #00cc00; border-color: #00cc00; }
+.haos:hover { background-color: #66ffff; border-color: #66ffff; color: #000; }
+.aquos:hover { background-color: #0099ff; border-color: #0099ff; }
+.darkus:hover { background-color: #9b59b6; border-color: #9b59b6; }
+.aurelus:hover { background-color: #ffb300; border-color: #ffb300; }
+
+/* ==========================================================================
+   SEÇÕES & CONTEÚDO
+   ========================================================================== */
 section {
-  margin: 25px 0;
-  padding: 24px;
-  background: rgba(0, 0, 0, 0.55);
+  margin: 20px 0;
+  padding: 28px;
+  background: rgba(14, 14, 14, 0.75);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  width: 100%;
 }
 
 section h1, section h2, section h3 {
   color: #d32f2f;
-  margin: 15px 0 10px 0;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
+
+section h1 { font-size: 1.8rem; }
+section h2 { font-size: 1.5rem; }
+section h3 { font-size: 1.25rem; }
 
 section p {
-  margin: 10px 0;
+  margin-bottom: 12px;
   line-height: 1.7;
+  color: #e0e0e0;
 }
 
-/* Tabelas */
+section ul, section ol {
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+
+section li {
+  margin: 6px 0;
+  color: #ddd;
+}
+
+section strong {
+  color: #ffd700;
+}
+
+/* ==========================================================================
+   CARTAS E BAKUCORES (DIMENSÕES INDEPENDENTES)
+   ========================================================================== */
+.card-img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #d32f2f;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  display: block;
+  margin: 10px auto;
+  object-fit: contain;
+}
+
+.bakucores-container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+.bakucore-card {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.bakucore-card:hover {
+  transform: translateY(-4px);
+  border-color: #d32f2f;
+}
+
+.bakucore,
+.bakucore-card img {
+  width: 90px !important;
+  max-width: 90px !important;
+  height: 90px !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+/* ==========================================================================
+   TABELAS
+   ========================================================================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -170,19 +242,34 @@ table tbody tr:nth-child(odd) { background: rgba(0, 0, 0, 0.4); }
 table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.25); }
 table tbody tr:hover { background: rgba(211, 47, 47, 0.2); }
 
-/* Footer */
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
 footer {
+  margin-top: auto; /* Empurra o rodapé para a base da página */
+  width: 100%;
   text-align: center;
-  margin-top: auto;
-  padding: 24px 20px;
-  background: rgba(10, 10, 10, 0.85);
+  padding: 18px 20px;
+  background: rgba(10, 10, 10, 0.95);
   border-top: 2px solid #d32f2f;
+  color: #888;
   font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
-/* Responsividade */
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
 @media (max-width: 768px) {
+  main, .page-container {
+    padding: 14px;
+  }
+
+  section {
+    padding: 16px;
+  }
+
   .topbar-interna {
-    top: 180px;
+    top: 58px;
   }
 }

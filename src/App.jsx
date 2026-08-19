@@ -25,7 +25,7 @@ function App() {
 
   return (
     <PageContext.Provider value={{ currentPage, setCurrentPage }}>
-      <div>
+      <div className="app-layout">
         {renderPage()}
       </div>
     </PageContext.Provider>
