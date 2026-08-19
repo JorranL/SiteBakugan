@@ -6,16 +6,20 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { id: 'home', label: 'Wiki'},
+    { id: 'home', label: 'Wiki' },
     { id: 'faccoes', label: 'Facções'},
-    { id: 'cartas', label: 'Cartas'},
-    { id: 'bakucores', label: 'BakuCores'}
+    { id: 'cartas', label: 'Regras de Cartas'},
+    { id: 'bakucores', label: 'BakuCores'},
+    { id: 'catalogo', label: 'Catálogo de Cartas'}
   ]
 
   const handleNavigate = (pageId) => {
     setCurrentPage(pageId)
     setIsOpen(false)
   }
+
+  // Nome formatado para o badge da direita
+  const currentLabel = navItems.find((item) => item.id === currentPage)?.label || currentPage
 
   return (
     <>
@@ -86,7 +90,7 @@ export default function Header() {
         </div>
 
         {/* Indicador da Página Ativa */}
-        <div style={{ width: '80px', textAlign: 'right' }}>
+        <div style={{ textAlign: 'right' }}>
           <span
             style={{
               background: '#222',
@@ -96,10 +100,11 @@ export default function Header() {
               borderRadius: '6px',
               fontSize: '0.75rem',
               textTransform: 'uppercase',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              whiteSpace: 'nowrap'
             }}
           >
-            {currentPage}
+            {currentLabel}
           </span>
         </div>
       </header>
@@ -143,10 +148,20 @@ export default function Header() {
         }}
       >
         {/* Cabeçalho do Drawer */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #282828', paddingBottom: '15px' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderBottom: '1px solid #282828',
+            paddingBottom: '15px'
+          }}
+        >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <img src="Img/logo.png" alt="Logo" style={{ height: '32px' }} />
-            <span style={{ fontWeight: 'bold', color: '#fff', fontSize: '1.05rem' }}>Navegação</span>
+            <span style={{ fontWeight: 'bold', color: '#fff', fontSize: '1.05rem' }}>
+              Navegação
+            </span>
           </div>
           <button
             onClick={() => setIsOpen(false)}
@@ -165,31 +180,35 @@ export default function Header() {
 
         {/* Links de Páginas */}
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: 0 }}>
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavigate(item.id)}
-              style={{
-                background: currentPage === item.id ? '#d32f2f' : '#1c1c1c',
-                color: '#fff',
-                border: '1px solid',
-                borderColor: currentPage === item.id ? '#d32f2f' : '#333',
-                padding: '14px 16px',
-                borderRadius: '10px',
-                cursor: 'pointer',
-                fontSize: '1rem',
-                fontWeight: '600',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                transition: 'all 0.2s ease',
-                textAlign: 'left'
-              }}
-            >
-              <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            const isActive = currentPage === item.id
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleNavigate(item.id)}
+                style={{
+                  background: isActive ? '#d32f2f' : '#1c1c1c',
+                  color: '#fff',
+                  border: '1px solid',
+                  borderColor: isActive ? '#d32f2f' : '#333',
+                  padding: '14px 16px',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  transition: 'all 0.2s ease',
+                  textAlign: 'left',
+                  boxShadow: isActive ? '0 0 12px rgba(211, 47, 47, 0.4)' : 'none'
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
+                {item.label}
+              </button>
+            )
+          })}
         </nav>
       </aside>
     </>

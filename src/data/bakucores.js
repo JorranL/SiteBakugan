@@ -2,6 +2,7 @@ const BAKUCORES = [
   {
     id: 'helix',
     name: 'Helix',
+    color: '#00fff2',
     icon: 'Img/Bakucores/BakuCore_Helix_Symbol.png',
     images: [
       'Img/Bakucores/BKC_43.png',
@@ -19,6 +20,7 @@ const BAKUCORES = [
   {
     id: 'fist',
     name: 'Fist',
+    color: '#09ff00',
     icon: 'Img/Bakucores/Battle_Planet_Fist_BakuCore.png',
     images: [
       'Img/Bakucores/BKC_1.png',
@@ -41,6 +43,7 @@ const BAKUCORES = [
   {
     id: 'fireFist',
     name: 'Fire Fist',
+    color: '#fc1d00',
     icon: 'Img/Bakucores/Battle_Planet_Flaming_Fist_BakuCore.png',
     images: [
       'Img/Bakucores/BKC_16.png',
@@ -54,6 +57,7 @@ const BAKUCORES = [
   {
     id: 'shield',
     name: 'Shield',
+    color: '#ffae00',
     icon: 'Img/Bakucores/Battle_Planet_Shield_BakuCore.png',
     images: [
       'Img/Bakucores/BKC_22.png',
@@ -76,6 +80,7 @@ const BAKUCORES = [
   {
     id: 'magicShield',
     name: 'Magic Shield',
+    color: '#001488',
     icon: 'Img/Bakucores/Battle_Planet_Magic_Shield_BakuCore.png',
     images: [
       'Img/Bakucores/BKC_37.png',

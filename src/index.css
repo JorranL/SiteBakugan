@@ -40,7 +40,8 @@ body {
 .home-page,
 .cartas-page,
 .faccoes-page,
-.bakucores-page {
+.bakucores-page 
+.catalogo-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -207,6 +208,7 @@ section strong {
   display: block;
 }
 
+
 /* ==========================================================================
    TABELAS
    ========================================================================== */
@@ -272,4 +274,81 @@ footer {
   .topbar-interna {
     top: 58px;
   }
+}
+/* ==========================================================================
+   SISTEMA DE ANIMAÇÕES E TRANSIÇÕES
+   ========================================================================== */
+
+/* 1. Transição de entrada da página */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page {
+  animation: pageEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Entrada em cascata para listas e cards */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.stagger-card {
+  opacity: 0;
+  animation: cardFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.stagger-card:nth-child(1) { animation-delay: 0.05s; }
+.stagger-card:nth-child(2) { animation-delay: 0.12s; }
+.stagger-card:nth-child(3) { animation-delay: 0.19s; }
+.stagger-card:nth-child(4) { animation-delay: 0.26s; }
+.stagger-card:nth-child(5) { animation-delay: 0.33s; }
+.stagger-card:nth-child(6) { animation-delay: 0.40s; }
+
+/* 3. Interações suaves de Hover nos cards e botões */
+.interactive-card {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), 
+              box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1), 
+              border-color 0.25s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.75);
+}
+
+.interactive-card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+/* Card com a cor da facção visível o tempo todo */
+.neon-card {
+  --neon-color: #00f0ff;
+  border: 2px solid var(--neon-color) !important; /* Borda sempre da cor da facção */
+  box-shadow: 0 0 10px color-mix(in srgb, var(--neon-color) 35%, transparent),
+              0 4px 14px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Brilho Neon intenso ao passar o mouse */
+.neon-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--neon-color) !important;
+  box-shadow: 0 0 16px var(--neon-color),
+              0 0 32px color-mix(in srgb, var(--neon-color) 70%, transparent),
+              inset 0 0 12px color-mix(in srgb, var(--neon-color) 30%, transparent);
 }

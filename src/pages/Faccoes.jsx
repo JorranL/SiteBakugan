@@ -9,7 +9,7 @@ const FACTIONS = [
     id: 'pyrus',
     name: 'Pyrus',
     subtitle: 'Fogo',
-    color: '#e41a1a',
+    color: '#ff2222',
     icon: 'Img/30px-BBP_Pyrus.svg.png',
     description: 'Pyrus é a facção da agressividade e do dano direto. Sua identidade é marcada pela força ofensiva. Jogadores que escolhem Pyrus buscam pressionar o oponente desde o início, utilizando ataques explosivos e a capacidade de destruir cartas adversárias para manter o controle do ritmo da partida.',
     style: 'Agressividade, dano direto, Fury (quando com 1 ou 0 cartas)',
@@ -26,7 +26,7 @@ const FACTIONS = [
     id: 'ventus',
     name: 'Ventus',
     subtitle: 'Vento',
-    color: '#126e3c',
+    color: '#00e676',
     icon: 'Img/30px-BBP_Ventus.svg.png',
     description: 'Ventus é a facção voltada para o controle e manipulação do campo. O estilo Ventus é mais estratégico, focando em enfraquecer o adversário através de ajustes táticos, alterando ou eliminando os recursos que fortalecem o oponente, garantindo vantagem ao longo da partida.',
     style: 'Manipulação de BakuCores, controle do campo',
@@ -43,7 +43,7 @@ const FACTIONS = [
     id: 'haos',
     name: 'Haos',
     subtitle: 'Luz',
-    color: '#3d9797',
+    color: '#00e5ff',
     icon: 'Img/30px-BBP_Haos.svg.png',
     description: 'Haos se caracteriza pelo suporte e fortalecimento das jogadas. Além de oferecerem vantagem em termos de resistência, as habilidades de Haos colaboram com a estabilidade do time, fazendo com que os jogadores consigam manter seus Bakugans ativos e prontos para os momentos decisivos do jogo.',
     style: 'Suporte, buffs, proteção, aumento de B-Power',
@@ -60,7 +60,7 @@ const FACTIONS = [
     id: 'aquos',
     name: 'Aquos',
     subtitle: 'Água',
-    color: '#3e7396',
+    color: '#2979ff',
     icon: 'Img/Aquos.svg.png',
     description: 'Aquos representa o domínio sobre os recursos e o controle do fluxo do jogo. Essa facção é ideal para jogadores que gostam de construir uma vantagem a longo prazo, garantindo uma reserva de cartas e energia que pode virar o jogo nos momentos críticos.',
     style: 'Controle, compra de cartas, manipulação de energia',
@@ -77,7 +77,7 @@ const FACTIONS = [
     id: 'darkus',
     name: 'Darkus',
     subtitle: 'Trevas',
-    color: '#9b59b6',
+    color: '#d500f9',
     icon: 'Img/30px-BBP_Darkus.svg.png',
     description: 'Darkus é voltada para a destruição e a desestabilização do adversário. Essa facção busca desequilibrar o campo, criando situações em que o oponente tem dificuldades para reagir diante dos inúmeros efeitos destrutivos e de manipulação impostos pelas cartas Darkus.',
     style: 'Descarte, destruição, manipulação da mão do oponente',
@@ -94,7 +94,7 @@ const FACTIONS = [
     id: 'aurelus',
     name: 'Aurelus',
     subtitle: 'Luz Antiga - Facção Especial',
-    color: '#d4af37',
+    color: '#ffd600',
     icon: 'Img/30px-BBP_Aurelus.svg.png',
     description: 'Aurelus é uma facção especial e menos convencional, frequentemente considerada neutra ou premium. Aurelus não possui cartas de ação, heróis ou evoluções definidas como as demais facções; em vez disso, apresenta cartas de personagem e BakuGears com atributos elevados, conferindo ao jogador a oportunidade de obter vantagens significativas quando bem utilizada.',
     style: 'Neutro/Premium. Representa equilíbrio e força rara',
@@ -113,54 +113,48 @@ export default function Faccoes() {
   const [activeFaction, setActiveFaction] = useState(null)
 
   return (
-    <div>
+    <div className="faccoes-page">
       <Header />
 
       {/* TELA INICIAL: Grid 2x3 de Facções + Tabela Comparativa */}
       {activeFaction === null ? (
-        <main style={{ padding: '40px 20px', maxWidth: '960px', margin: '0 auto' }}>
+        <main className="content-wrapper" style={{ justifyContent: 'flex-start' }}>
           <section style={{ textAlign: 'center', marginBottom: '35px' }}>
-            <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '10px' }}>Facções Bakugan</h2>
+            <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '10px' }}>
+              Facções Bakugan
+            </h2>
             <p style={{ color: '#aaa', maxWidth: '650px', margin: '0 auto', fontSize: '1rem' }}>
               Selecione uma facção para ver suas características completas ou consulte a tabela comparativa abaixo.
             </p>
           </section>
 
-          {/* Grid 2x3 (3 colunas x 2 linhas) */}
+          {/* Grid de cards com classe neon-card e variável CSS dinâmica */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
               gap: '20px',
-              maxWidth: '750px',
-              margin: '0 auto 50px auto'
+              maxWidth: '850px',
+              margin: '0 auto 50px auto',
+              width: '100%'
             }}
           >
             {FACTIONS.map((faction) => (
               <button
                 key={faction.id}
                 onClick={() => setActiveFaction(faction.id)}
+                className="stagger-card interactive-card neon-card"
                 style={{
-                  background: '#1a1a1a',
-                  border: `2px solid ${faction.color}`,
-                  borderRadius: '12px',
-                  padding: '20px 15px',
+                  '--neon-color': faction.color,
+                  background: 'rgba(20, 20, 20, 0.75)',
+                  borderRadius: '14px',
+                  padding: '24px 15px',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '10px',
+                  gap: '12px',
                   cursor: 'pointer',
-                  color: '#fff',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
-                  transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-5px)'
-                  e.currentTarget.style.boxShadow = `0 6px 16px ${faction.color}55`
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.4)'
+                  color: '#fff'
                 }}
               >
                 <img
@@ -169,17 +163,17 @@ export default function Faccoes() {
                   style={{ height: '48px', width: '48px', objectFit: 'contain' }}
                 />
                 <div style={{ textAlign: 'center' }}>
-                  <span style={{ fontWeight: 'bold', fontSize: '1.05rem', display: 'block' }}>
+                  <span style={{ fontWeight: 'bold', fontSize: '1.1rem', display: 'block' }}>
                     {faction.name}
                   </span>
-                  <span style={{ fontSize: '0.8rem', color: '#bbb' }}>{faction.subtitle}</span>
+                  <span style={{ fontSize: '0.85rem', color: '#bbb' }}>{faction.subtitle}</span>
                 </div>
               </button>
             ))}
           </div>
 
           {/* Tabela de Comparação */}
-          <div style={{ marginTop: '20px' }}>
+          <div style={{ width: '100%', marginTop: '10px' }}>
             <h3 style={{ color: '#fff', textAlign: 'center', marginBottom: '20px', fontSize: '1.4rem' }}>
               Tabela Comparativa de Estilos
             </h3>
@@ -188,10 +182,9 @@ export default function Faccoes() {
         </main>
       ) : (
         /* TELA DETALHADA: Facção selecionada */
-        <main style={{ paddingBottom: '40px' }}>
-          <header className="topbar-interna" style={{ padding: '20px 0' }}>
+        <main className="content-wrapper" style={{ justifyContent: 'flex-start' }}>
+          <header className="topbar-interna">
             <nav
-              className="nav-interna"
               style={{
                 display: 'flex',
                 gap: '10px',
@@ -210,7 +203,7 @@ export default function Faccoes() {
                   borderRadius: '8px',
                   cursor: 'pointer',
                   fontSize: '0.9rem',
-                  transition: '0.2s'
+                  transition: 'all 0.2s ease'
                 }}
               >
                 ← Visão Geral
@@ -227,7 +220,7 @@ export default function Faccoes() {
                     padding: '8px 16px',
                     borderRadius: '8px',
                     cursor: 'pointer',
-                    transition: '0.2s',
+                    transition: 'all 0.2s ease',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -245,7 +238,9 @@ export default function Faccoes() {
             </nav>
           </header>
 
-          <FactionCard faction={FACTIONS.find((f) => f.id === activeFaction)} />
+          <div key={activeFaction} className="animate-page" style={{ width: '100%', marginTop: '10px' }}>
+            <FactionCard faction={FACTIONS.find((f) => f.id === activeFaction)} />
+          </div>
         </main>
       )}
 

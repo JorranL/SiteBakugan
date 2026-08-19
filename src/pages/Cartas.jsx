@@ -107,13 +107,13 @@ export default function Cartas() {
   const [activeTab, setActiveTab] = useState(null)
 
   return (
-    <div>
+    <div className="cartas-page">
       <Header />
 
-      {/* TELA INICIAL: Nenhum card selecionado -> Mostra os 3 Grandes Cards */}
+      {/* TELA INICIAL: Nenhum card selecionado -> 3 Cards Grandes com Stagger e Hover */}
       {activeTab === null ? (
-        <main style={{ padding: '40px 20px', maxWidth: '1000px', margin: '0 auto' }}>
-          <section style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <main className="content-wrapper">
+          <section style={{ textAlign: 'center', marginBottom: '30px' }}>
             <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '10px' }}>
               Guia de Cartas e Regras
             </h2>
@@ -125,41 +125,34 @@ export default function Cartas() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
               gap: '24px',
-              maxWidth: '850px',
-              margin: '0 auto'
+              maxWidth: '900px',
+              margin: '0 auto',
+              width: '100%'
             }}
           >
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
+                className="stagger-card interactive-card"
                 style={{
-                  background: '#1a1a1a',
+                  background: 'rgba(20, 20, 20, 0.75)',
                   border: `2px solid ${cat.color}`,
-                  borderRadius: '12px',
-                  padding: '30px 20px',
+                  borderRadius: '16px',
+                  padding: '36px 20px',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   gap: '12px',
                   cursor: 'pointer',
                   color: '#fff',
-                  boxShadow: '0 6px 14px rgba(0, 0, 0, 0.4)',
-                  transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.boxShadow = `0 8px 20px ${cat.color}55`
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = '0 6px 14px rgba(0, 0, 0, 0.4)'
+                  boxShadow: '0 6px 14px rgba(0, 0, 0, 0.5)'
                 }}
               >
-                <span style={{ fontSize: '2.5rem' }}>{cat.icon}</span>
-                <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>{cat.title}</span>
+                <span style={{ fontSize: '2.8rem' }}>{cat.icon}</span>
+                <span style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>{cat.title}</span>
                 <span style={{ fontSize: '0.85rem', color: '#aaa', textAlign: 'center' }}>
                   {cat.subtitle}
                 </span>
@@ -168,11 +161,10 @@ export default function Cartas() {
           </div>
         </main>
       ) : (
-        /* TELA DETALHADA: Aba selecionada com barra compacta */
-        <main style={{ paddingBottom: '40px', maxWidth: '1000px', margin: '0 auto' }}>
-          <header className="topbar-interna" style={{ padding: '20px 0' }}>
+        /* TELA DETALHADA: Navegação Interna e Conteúdo */
+        <main className="content-wrapper" style={{ justifyContent: 'flex-start' }}>
+          <header className="topbar-interna">
             <nav
-              className="nav-interna"
               style={{
                 display: 'flex',
                 gap: '10px',
@@ -211,7 +203,7 @@ export default function Cartas() {
                     alignItems: 'center',
                     gap: '6px',
                     fontSize: '0.9rem',
-                    transition: '0.2s'
+                    transition: 'all 0.2s ease'
                   }}
                 >
                   <span>{cat.icon}</span>
@@ -221,7 +213,7 @@ export default function Cartas() {
             </nav>
           </header>
 
-          <div style={{ marginTop: '20px', padding: '0 20px' }}>
+          <div key={activeTab} className="animate-page" style={{ width: '100%', marginTop: '10px' }}>
             {activeTab === 'tipos' &&
               CARD_TYPES.map((section) => (
                 <CardSection key={section.id} section={section} />

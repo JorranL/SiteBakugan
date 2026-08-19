@@ -3,6 +3,7 @@ export default function BakuCoreSection({ category }) {
 
   return (
     <section
+      className="bakucore-section"
       style={{
         maxWidth: '1100px',
         margin: '25px auto',
@@ -34,7 +35,7 @@ export default function BakuCoreSection({ category }) {
         </h2>
       </div>
 
-      {/* Grid com todas as imagens dos BakuCores da categoria */}
+      {/* Grid com todas as imagens dos BakuCores com suporte a neon e animação */}
       <div
         style={{
           display: 'grid',
@@ -49,27 +50,19 @@ export default function BakuCoreSection({ category }) {
           category.images.map((imgSrc, index) => (
             <div
               key={index}
+              className="stagger-card interactive-card neon-card"
               style={{
+                '--neon-color': category.color,
                 background: 'rgba(28, 28, 28, 0.7)',
                 padding: '12px',
                 borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'transform 0.2s ease, border-color 0.2s ease',
                 width: '100%',
                 maxWidth: '140px',
-                aspectRatio: '1 / 1'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.borderColor = '#d32f2f'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'
+                aspectRatio: '1 / 1',
+                cursor: 'pointer'
               }}
             >
               <img
