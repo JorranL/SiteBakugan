@@ -51,18 +51,6 @@ A plataforma organiza todo o ecossistema do jogo em módulos visuais temáticos:
 
 ---
 
-## 🛡️ Identidade Visual das Facções
-
-| Facção | Elemento | Cor Tema | Hex |
-|---|---|---|---|
-| **Pyrus** | Fogo | Vermelho | `#E41A1A` |
-| **Ventus** | Vento | Verde | `#126E3C` |
-| **Haos** | Luz | Turquesa | `#3D9797` |
-| **Aquos** | Água | Azul | `#3E7396` |
-| **Darkus** | Trevas | Roxo / Púrpura | `#9B59B6` |
-| **Aurelus** | Luz Antiga | Dourado | `#D4AF37` |
-
----
 
 ## 👤 Autor & Desenvolvimento
 
