@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-  background-image: url('Img/5293470.jpg');
+  background-image: url('/SiteBakugan/Img/5293470.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -247,16 +247,16 @@ table tbody tr:hover { background: rgba(211, 47, 47, 0.2); }
 /* ==========================================================================
    RODAPÉ (FOOTER)
    ========================================================================== */
-footer {
-  margin-top: auto; /* Empurra o rodapé para a base da página */
+footer, .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  z-index: 1000;
   text-align: center;
-  padding: 18px 20px;
-  background: rgba(10, 10, 10, 0.95);
-  border-top: 2px solid #d32f2f;
-  color: #888;
-  font-size: 0.9rem;
-  flex-shrink: 0;
+  background-color: rgba(10, 10, 10, 0.9); 
+  border-top: 1px solid #8b0000;          
+  padding: 8px 0;
 }
 
 /* ==========================================================================
